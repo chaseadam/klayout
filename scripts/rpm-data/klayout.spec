@@ -56,11 +56,6 @@ For details see README.md
 
 TARGET="linux-release"
 
-cd %{_sourcedir}
-
-# clean bin dir
-rm -rf %{_builddir}/bin.$TARGET
-
 # do the actual build
 ./build.sh -rpath %{_libdir}/klayout \
            -bin %{_builddir}/bin.$TARGET \
