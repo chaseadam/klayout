@@ -39,8 +39,8 @@ Requires: qt5-qttools >= 5.11.1
 # Maybe it's worth considering to drop designer support and replace by QUiLoader.
 Requires: qt5-qttools-devel >= 5.11.1
 
-## Provides qmake
-BuildRequires: qt-devel
+## Provides qmake (qmake-qt5)
+BuildRequires: qt5-qtbase-devel
 
 %define buildopt -j2
 %define pylib %{python_sitearch}
