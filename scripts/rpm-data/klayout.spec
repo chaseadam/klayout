@@ -38,6 +38,8 @@ Requires: qt5-qttools >= 5.11.1
 # NOTE: this package is required for libQt5Designer and pulls in a lot of devel stuff.
 # Maybe it's worth considering to drop designer support and replace by QUiLoader.
 Requires: qt5-qttools-devel >= 5.11.1
+## Provides qmake
+Requires: qt-devel
 
 %define buildopt -j2
 %define pylib %{python_sitearch}
