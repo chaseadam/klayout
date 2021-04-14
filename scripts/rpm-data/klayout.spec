@@ -49,6 +49,10 @@ BuildRequires: qt5-qtmultimedia-devel
 BuildRequires: qt5-qtxmlpatterns-devel
 BuildRequires: qt5-qtsvg-devel
 
+# probably overkill
+# Unknown module(s) in QT: designer
+BuildRequires: qt5-qttools-libs-designer
+BuildRequires: qt5-designer
 
 %define buildopt -j2
 %define pylib %{python_sitearch}
