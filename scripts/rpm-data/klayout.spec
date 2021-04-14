@@ -16,25 +16,20 @@
 #
 
 Name:           klayout
-Version:        %{git_version}
+Version:        0.26.11
 Release:        0
 Summary:        KLayout, viewer and editor for mask layouts
 License:        GPL-2.0+
 Group:          Productivity/Scientific/Electronics
 Url:            http://www.klayout.de
-%if "%{git_source}" == ""
-Source0:        http://www.klayout.de/downloads/%{name}-%{version}.tar.gz
-%endif
-# BuildRoot:      %{_tmppath}/%{name}-%{version}-build
+Source0:        https://www.klayout.org/downloads/source/%{name}-%{version}.tar.gz
 
 # Disable auto-detection of dependencies (to prevent including the
 # so's of klayout itself)
 AutoReqProv: 	no
 
-# CentOS8 requirements
-%if "%{target_system}" == "centos8"
-Requires:	ruby >= 2.5.5
-Requires:	python3 >= 3.6.0
+Requires: ruby >= 2.5.5
+Requires: python3 >= 3.6.0
 Requires: qt5-qtbase >= 5.11.1
 Requires: qt5-qtmultimedia >= 5.11.1
 Requires: qt5-qtxmlpatterns >= 5.11.1
@@ -47,61 +42,6 @@ Requires: qt5-qttools-devel >= 5.11.1
 %define buildopt -j2
 %define pylib %{python_sitearch}
 %define __python /usr/bin/python3
-%endif
-
-# CentOS7 requirements
-%if "%{target_system}" == "centos7"
-Requires:	ruby >= 2.0.0
-Requires:	python >= 2.7.5
-Requires: qt-x11 >= 4.8.5
-%define buildopt -j2
-%define pylib %{python_sitearch}
-%endif
-
-%if "%{target_system}" == "centos6"
-# CentOS6 requirements
-Requires: libcurl >= 7.19.7
-Requires: ruby >= 1.8.7
-Requires: python >= 2.6.6
-Requires: qt-x11 >= 4.6.2
-%define buildopt -libcurl -j2
-%define pylib %{python_sitearch}
-%endif
-
-%if "%{target_system}" == "opensuse42_2"
-# OpenSuSE 42.2 requirements
-Requires:	ruby2.3 >= 2.3.1
-Requires:	python3 >= 3.4.6
-Requires: libqt4-x11 >= 4.8.6
-%define buildopt -j2
-%define pylib %{python3_sitearch}
-%endif
-
-%if "%{target_system}" == "opensuse42_3"
-# OpenSuSE 42.3 requirements
-Requires:	ruby2.3 >= 2.3.1
-Requires:	python3 >= 3.4.6
-Requires: libqt4-x11 >= 4.8.6
-%define buildopt -j2
-%define pylib %{python3_sitearch}
-%endif
-
-%if "%{target_system}" == "opensuse15"
-# OpenSuSE Leap 15 requirements
-Requires:	ruby >= 2.5
-Requires:	python3 >= 3.6
-Requires: libqt4-x11 >= 4.8.7
-%define buildopt -j2
-%define pylib %{python3_sitearch}
-%endif
-
-%if "%{target_system}" == "opensuse15"
-# OpenSuSE Leap 15 requirements
-Requires:	ruby >= 2.5
-Requires:	python3 >= 3.6
-Requires: libqt4-x11 >= 4.8.7
-%define buildopt -j2
-%endif
 
 %description
 Mask layout viewer and editor for the chip design engineer.
@@ -110,23 +50,13 @@ For details see README.md
 
 %prep
 
-%if "%{git_source}" != ""
-  rm -rf %{_sourcedir}
-  ln -s %{git_source} %{_sourcedir}
-%else
-  %setup -q	
-%endif
+%setup -q	
 
 %build
 
 TARGET="linux-release"
 
-%if "%{git_source}" != ""
-# build from git sources if possible
-cd %{git_source}
-%else
 cd %{_sourcedir}
-%endif
 
 # clean bin dir
 rm -rf %{_builddir}/bin.$TARGET
