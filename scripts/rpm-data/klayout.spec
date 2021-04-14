@@ -41,6 +41,8 @@ Requires: qt5-qttools-devel >= 5.11.1
 
 ## Provides qmake (qmake-qt5)
 BuildRequires: qt5-qtbase-devel
+## /usr/include/python3.9/Python.h error
+BuildRequires: python3-devel
 
 %define buildopt -j2
 %define pylib %{python_sitearch}
