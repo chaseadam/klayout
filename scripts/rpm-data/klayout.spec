@@ -44,6 +44,12 @@ BuildRequires: qt5-qtbase-devel
 ## /usr/include/python3.9/Python.h error
 BuildRequires: python3-devel
 
+## Project ERROR: Unknown module(s) in QT: designer multimedia multimediawidgets xmlpatterns svg
+BuildRequires: qt5-qtmultimedia-devel
+BuildRequires: qt5-qtxmlpatterns-devel
+BuildRequires: qt5-qtsvg-devel
+
+
 %define buildopt -j2
 %define pylib %{python_sitearch}
 %define __python /usr/bin/python3
