@@ -28,16 +28,16 @@ Source0:        https://www.klayout.org/downloads/source/%{name}-%{version}.tar.
 # so's of klayout itself)
 AutoReqProv: 	no
 
-Requires: ruby >= 2.5.5
-Requires: python3 >= 3.6.0
-Requires: qt5-qtbase >= 5.11.1
-Requires: qt5-qtmultimedia >= 5.11.1
-Requires: qt5-qtxmlpatterns >= 5.11.1
-Requires: qt5-qtsvg >= 5.11.1
-Requires: qt5-qttools >= 5.11.1
-# NOTE: this package is required for libQt5Designer and pulls in a lot of devel stuff.
-# Maybe it's worth considering to drop designer support and replace by QUiLoader.
-Requires: qt5-qttools-devel >= 5.11.1
+#Requires: ruby >= 2.5.5
+#Requires: python3 >= 3.6.0
+#Requires: qt5-qtbase >= 5.11.1
+#Requires: qt5-qtmultimedia >= 5.11.1
+#Requires: qt5-qtxmlpatterns >= 5.11.1
+#Requires: qt5-qtsvg >= 5.11.1
+#Requires: qt5-qttools >= 5.11.1
+## NOTE: this package is required for libQt5Designer and pulls in a lot of devel stuff.
+## Maybe it's worth considering to drop designer support and replace by QUiLoader.
+#Requires: qt5-qttools-devel >= 5.11.1
 
 ## Provides qmake (qmake-qt5)
 BuildRequires: qt5-qtbase-devel
@@ -112,13 +112,8 @@ cp -pd %{_builddir}/bin.$TARGET/klayout %{_builddir}/bin.$TARGET/strm* %{buildro
 chmod 755 %{buildroot}%{_bindir}/*
 
 # other files
-install -Dm644 %{_sourcedir}/etc/%{name}.desktop %{buildroot}%{_datadir}/applications/%{name}.desktop
-install -Dm644 %{_sourcedir}/etc/logo.png %{buildroot}%{_datadir}/pixmaps/%{name}.png
-
-# TODO: remove this? This macro does not expand to anything in SuSE 42.x
-#%if 0%{?suse_version}%{?sles_version}
-#%suse_update_desktop_file -n %{name}
-#%endif
+install -Dm644 %{_builddir}/etc/%{name}.desktop %{buildroot}%{_datadir}/applications/%{name}.desktop
+install -Dm644 %{_builddir}/etc/logo.png %{buildroot}%{_datadir}/pixmaps/%{name}.png
 
 %files
 %defattr(-,root,root)
