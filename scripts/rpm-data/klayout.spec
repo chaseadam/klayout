@@ -112,8 +112,11 @@ cp -pd %{_builddir}/bin.$TARGET/klayout %{_builddir}/bin.$TARGET/strm* %{buildro
 chmod 755 %{buildroot}%{_bindir}/*
 
 # other files
-install -Dm644 %{_builddir}/etc/%{name}.desktop %{buildroot}%{_datadir}/applications/%{name}.desktop
-install -Dm644 %{_builddir}/etc/logo.png %{buildroot}%{_datadir}/pixmaps/%{name}.png
+## already in proper location?
+## + cd /builddir/build/BUILD
+## + cd klayout-0.26.11
+install -Dm644 etc/%{name}.desktop %{buildroot}%{_datadir}/applications/%{name}.desktop
+install -Dm644 etc/logo.png %{buildroot}%{_datadir}/pixmaps/%{name}.png
 
 %files
 %defattr(-,root,root)
