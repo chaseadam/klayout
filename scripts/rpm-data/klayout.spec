@@ -53,6 +53,8 @@ BuildRequires: qt5-qttools-devel
 %define buildopt -j2
 %define pylib %{python_sitearch}
 %define __python /usr/bin/python3
+# error: Empty %files file /builddir/build/BUILD/klayout-0.26.11/debugsourcefiles.list
+%global debug_package %{nil}
 
 %description
 Mask layout viewer and editor for the chip design engineer.
