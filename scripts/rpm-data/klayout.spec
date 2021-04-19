@@ -17,7 +17,7 @@
 
 Name:           klayout
 Version:        0.26.11
-Release:        0
+Release:        1
 Summary:        KLayout, viewer and editor for mask layouts
 License:        GPL-2.0+
 Group:          Productivity/Scientific/Electronics
@@ -31,10 +31,10 @@ AutoReqProv: 	no
 #Requires: ruby >= 2.5.5
 #Requires: python3 >= 3.6.0
 #Requires: qt5-qtbase >= 5.11.1
-#Requires: qt5-qtmultimedia >= 5.11.1
+Requires: qt5-qtmultimedia >= 5.11.1
 #Requires: qt5-qtxmlpatterns >= 5.11.1
-#Requires: qt5-qtsvg >= 5.11.1
-#Requires: qt5-qttools >= 5.11.1
+Requires: qt5-qtsvg >= 5.11.1
+Requires: qt5-qttools-libs-designer >= 5.11.1
 ## NOTE: this package is required for libQt5Designer and pulls in a lot of devel stuff.
 ## Maybe it's worth considering to drop designer support and replace by QUiLoader.
 #Requires: qt5-qttools-devel >= 5.11.1
